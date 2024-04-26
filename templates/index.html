@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actor Table</title>
+    <style>
+        /* Reset some default margins and padding */
+        body,
+        h2,
+        p {
+            margin: 0;
+            padding: 8px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h2 {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        div {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 2px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>
+
+    <script src="/script.js"></script>
+</head>
+
+<body>
+    <div id="getTAW">
+        <h2>Tính toán điểm các tác nhân (actors) tương tác</h2>
+        <p>Nhập số lượng tác nhân:</p>
+        <div>
+            <div>
+                <label for="">Đơn giản<input type="number" id="agent1"></label>
+            </div>
+            <div>
+                <label for="">Trung bình<input type="number" id="agent2"></label>
+            </div>
+            <div>
+                <label for="">Phức tạp<input type="number" id="agent3"></label>
+            </div>
+        </div>
+        <div id="taw"></div>
+    </div>
+
+    <div id="getTAW">
+        <h2>Tính toán điểm các trường hợp sử dụng</h2>
+        <p>Nhập số trường hợp sử dụng:</p>
+        <div>
+            <strong>B</strong>
+            <div>
+                <label for="">Đơn giản<input type="number" id="b1"></label>
+            </div>
+            <div>
+                <label for="">Trung bình<input type="number" id="b2"></label>
+            </div>
+            <div>
+                <label for="">Phức tạp<input type="number" id="b3"></label>
+            </div>
+            <strong>M</strong>
+            <div>
+                <label for="">Đơn giản<input type="number" id="m1"></label>
+            </div>
+            <div>
+                <label for="">Trung bình<input type="number" id="m2"></label>
+            </div>
+            <div>
+                <label for="">Phức tạp<input type="number" id="m3"></label>
+            </div>
+            <strong>T</strong>
+            <div>
+                <label for="">Đơn giản<input type="number" id="t1"></label>
+            </div>
+            <div>
+                <label for="">Trung bình<input type="number" id="t2"></label>
+            </div>
+            <div>
+                <label for="">Phức tạp<input type="number" id="t3"></label>
+            </div>
+        </div>
+        <div id="tbf"></div>
+    </div>
+
+    <div id="getTFWTCF">
+        <h2>Tính toán hệ số phức tạp kỹ thuật-công nghệ</h2>
+        <p>Nhập giá trị xếp hạng (Q):</p>
+        <div>
+            <div>
+                <label for="">Hệ thống phân tán<input type="number" id="q1" placeholder="Q"></label>
+            </div>
+            <div>
+                <label for="">Tính chất đáp ứng tức thời hoặc yêu cầu đảm bảo thông lượng<input type="number" id="q2"
+                        placeholder="Q"></label>
+            </div>
+            <div>
+                <label for="">Hiệu quả sử dụng trực tuyến<input type="number" id="q3" placeholder="Q"></label>
+            </div>
+            <div>
+                <label for="">Độ phức tạp của xử lý bên trong<input type="number" id="q4" placeholder="Q"></label>
+            </div>
+            <div>
+                <label for="">Mã nguồn phải tái sử dụng được<input type="number" id="q5" placeholder="Q"></label>
+            </div>
+            <div>
+                <label for="">Dễ cài đặt<input type="number" id="q6" placeholder="Q"></label>
+            </div>
+            <div>
+                <label for="">Dễ sử dụng<input type="number" id="q7" placeholder="Q"></label>
+            </div>
+            <div>
+                <label for="">Khả năng chuyển đổi<input type="number" id="q8" placeholder="Q"></label>
+            </div>
+            <div>
+                <label for="">Khả năng dễ thay đổi<input type="number" id="q9" placeholder="Q"></label>
+            </div>
+            <div>
+                <label for="">Sử dụng đồng thời<input type="number" id="q10" placeholder="Q"></label>
+            </div>
+            <div>
+                <label for="">Có các tính năng bảo mật đặc biệt<input type="number" id="q11" placeholder="Q"></label>
+            </div>
+            <div>
+                <label for="">Cung cấp truy nhập trực tiếp tới các phần mềm của các hãng thứ ba<input type="number"
+                        id="q12" placeholder="Q"></label>
+            </div>
+            <div>
+                <label for="">Yêu cầu phương tiện đào tạo đặc biệt cho người sử dụng<input type="number" id="q13"
+                        placeholder="Q"></label>
+            </div>
+        </div>
+        <div id="tfw"></div>
+        <div id="tcf"></div>
+    </div>
+
+    <div id="getP">
+        <h2>Tính toán hệ số tác động môi trường và nhóm làm việc, hệ số phức tạp về môi trường, xác định độ ổn định kinh
+            nghiệm và nội suy thời gian lao động (P)</h2>
+        <p>Nhập giá trị xếp hạng (M):</p>
+        <strong>Đánh giá cho từng thành viên</strong>
+        <div>
+            <label for="">Có áp dụng qui trình phát triển phần mềm theo mẫu RUP và có hiểu biết về RUP hoặc quy trình
+                phát triển phần mềm tương đương<input type="number" id="mP1" placeholder="M"></label>
+        </div>
+        <div>
+            <label for="">Có kinh nghiệm về ứng dụng tương tự<input type="number" id="mP2" placeholder="M"></label>
+        </div>
+        <div>
+            <label for="">Có kinh nghiệm về hướng đối tượng<input type="number" id="mP3" placeholder="M"></label>
+        </div>
+        <div>
+            <label for="">Có khả năng lãnh đạo nhóm<input type="number" id="mP4" placeholder="M"></label>
+        </div>
+        <div>
+            <label for="">Tính chất năng động<input type="number" id="mP5" placeholder="M"></label>
+        </div>
+        <strong>Đánh giá chung cho Dự án</strong>
+        <div>
+            <label for="">Độ ổn định của các yêu cầu<input type="number" id="mP6" placeholder="M"></label>
+        </div>
+        <div>
+            <label for="">Sử dụng các nhân viên làm bán thời gian<input type="number" id="mP7" placeholder="M"></label>
+        </div>
+        <div>
+            <label for="">Dùng ngôn ngữ lập trình loại khó<input type="number" id="mP8" placeholder="M"></label>
+        </div>
+        <div id="efw"></div>
+        <div id="es"></div>
+        <div id="ef"></div>
+        <div id="p"></div>
+    </div>
+
+    <div id="getLuong">
+        <h2>Tính lương bình quân</h2>
+        <p>Nhập số lượng cán bộ:</p>
+        <div>
+            <label for="">8.500.000<input type="number" id="sl1" placeholder="SL"></label>
+        </div>
+        <div>
+            <label for="">7.500.000<input type="number" id="sl2" placeholder="SL"></label>
+        </div>
+        <div>
+            <label for="">6.000.000<input type="number" id="sl3" placeholder="SL"></label>
+        </div>
+        <div id="tongLuongPerMonth"></div>
+        <div id="avgLuongPerPersonPerMonth"></div>
+        <div id="avgLuongPerPersonPerHour"></div>
+    </div>
+
+    <div id="result">
+        <h2>Bảng định giá phần mềm</h2>
+        <div id="tawFinal"></div>
+        <div id="tbfFinal"></div>
+        <div id="uucpFinal"></div>
+        <div id="tcfFinal"></div>
+        <div id="efFinal"></div>
+        <div id="aucpFinal"></div>
+        <div id="pFinal"></div>
+        <div id="eFinal"></div>
+        <div id="hFinal"></div>
+        <div id="gFinal"></div>
+    </div>
+
+    <button type="button" onclick="main()">Tính toán</button>
+
+</body>
+
+</html>
